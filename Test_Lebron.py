@@ -13,4 +13,3 @@ async def meat(ctx):
     await ctx.send('I am your lord and saviour')
 
 client.run('MTIxMzA2NjkwMDYzMjc3MjYyOA.GryVXE.ZP1rAunSFY71MBVNUbI-n-9yrvgnfmpHEMk9GM')
-
