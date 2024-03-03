@@ -1,0 +1,86 @@
+.footer {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding: 100px;
+}
+
+.meme1 {
+    margin: auto;
+    width: 50%;
+    padding: 100px;
+}
+
+.thetitle {
+    padding: 100px;
+    text-align: center;
+}
+
+.memes {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;  
+}
+
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px;
+    width: 40%;  
+}
+
+.button {
+    padding-top: 100px;
+}
+
+.indexpara {
+    font-size: 18px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px;
+    text-align: center;
+    width: 50%;
+}
+
+.aboutpara {
+    padding-top: 50px;
+    text-align: center;
+}
+
+.mainabout {
+    margin: auto;
+    width: 50%;
+}
+
+.theteam {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 50px;
+    width: 70%;  
+}
+
+.lotsofcode {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px;
+    width: 70%;  
+}
+
+.infodiv {
+    margin: auto;
+    width: 50%;
+    padding-top: 100px;
+    padding-bottom: 10px;
+}
+
+.lebrontroll {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px;
+    width: 30%;  
+}
