@@ -51,24 +51,48 @@ async def toggle_off(ctx):
 #Fetch lyrics
 
 @client.command()
-async def songlyrics(ctx, artist, song):
-    #Convert arguement with underscore to space
-    artist = artist.replace('_', ' ')
-    song = song.replace('_', ' ')
+async def songlyrics(ctx, user: discord.Member = None):
+    #Convert arguement with underscore to space 
+    if user is None:
+        user = client.user
+        await ctx.send("Please type user name")
+
+    if user.activity is not None and isinstance(user.activity, discord.Spotify):
+        spotify_activity = user.activity
+        song = spotify_activity.title
+        artist = spotify_activity.artist
+    else:
+        await ctx.send(f"{user.display_name} is not currently listening to Spotify.")
+        await ctx.send(f"They are doing {user.activity}")
+
+    a = 0
+    b = 2000
     full_lyric = lyric_getter.get_lyrics(artist, song)
-    await ctx.message.author.send(full_lyric[0:2000])
-    await ctx.message.author.send(full_lyric[2000:4000])
-    await ctx.message.author.send(full_lyric[4000:6000])
-    await ctx.message.author.send(full_lyric[6000:8000])
+    lyric_len = len(full_lyric)
+    cycle_times = lyric_len // 2000 + 1
 
-    #for char in full_lyric:
-        #if char == '\n':
-        #    current_line = [0, full_lyric.index(char)]
-        #    await ctx.send(current_line)
-        #    current_line.pop(0, full_lyric.index(char))
+    for n in range(cycle_times):
+        await ctx.send(full_lyric[a:b])
+        a = b
+        b += 2000
 
 
+@client.command()
+async def spotify(ctx, user: discord.Member = None):
+    # If no user is mentioned, use the bot's own status
+    if user is None:
+        user = client.user
+        await ctx.send("Please type user name")
+
+    # Fetch the status of the specified user
+    if user.activity is not None and isinstance(user.activity, discord.Spotify):
+        spotify_activity = user.activity
+        await ctx.send(f"{user.display_name} is listening to Spotify:")
+        await ctx.send(f"Song: {spotify_activity.title}\nArtist(s): {', '.join(spotify_activity.artists)}")
+    else:
+        await ctx.send(f"{user.display_name} is not currently listening to Spotify.")
+        await ctx.send(f"They are doing {user.activity}")
 
 #--------
 
-client.run('')
+client.run('token')
